@@ -3,13 +3,9 @@ namespace LanguageFeatures.Controllers;
 public class HomeController : Controller
 {
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        Dictionary<string, Product> products = new()
-        {
-            ["Kayak"]=new Product {Name = "Kayak", Price=275m},
-            ["LifeJacket"]=new Product {Name = "LifeJacket", Price=630m}
-        };
-        return View("Index", products.Keys);
+        await Task.Delay(10000);
+        return View("Index");
     }
 }
